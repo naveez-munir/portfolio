@@ -5,19 +5,49 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --border-color: #d1d5db;
+  --accent: #ffcc00;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.light {
+  --background: #f7e6d0;
+  --foreground: #3e1b6d;
+  --border-color: #b491c8;
+  --accent: #b491c8;
+  --shadow-color: rgba(255, 182, 193, 0.4);
+}
+
+.dark {
+  --background: #1a202c;
+  --foreground: #e2e8f0;
+  --border-color: #2d3748;
+  --accent: #e53e3e;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.sunset {
+  --background: #ffafbd;
+  --foreground: #2c3e50;
+  --border-color: #f76c6c;
+  --accent: #f76c6c;
+  --shadow-color: rgba(255, 143, 90, 0.4);
+}
+
+.oceanic {
+  --background: #008080;
+  --foreground: #ffffff;
+  --border-color: #00ced1;
+  --accent: #00ced1;
+  --shadow-color: rgba(0, 206, 209, 0.4);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  border-color: var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 @layer utilities {
