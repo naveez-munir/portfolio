@@ -1,28 +1,40 @@
+"use client"
+
 import Link from "next/link";
+import { useState } from "react";
 import ThemeToggle from "../theme/ThemeToggle";
+import { Menu, X } from "lucide-react"
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navBarItems = [
-    { label: "About", link: "" },
-    { label: "Skills", link: "" },
-    { label: "Experience", link: "" },
-    { label: "projects", link: "" },
-    { label: "Contact", link: "" },
+    { label: "About", link: "#about" },
+    { label: "Skills", link: "#skills" },
+    { label: "Experience", link: "#experience" },
+    { label: "Projects", link: "#projects" },
+    { label: "Contact", link: "#contact" },
   ];
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-foreground px-3 shadow-lg shadow-black/[0.03] backdrop-blur-sm before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(var(--foreground), var(--foreground-alt))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]">
-          <div className="flex flex-1 items-center">
-            <h1 className="text-background">Logo</h1>
+      <div className="mx-auto w-11/12 px-4 sm:px-6">
+        <div className="relative flex h-14 items-center justify-between gap-3 rounded-full bg-foreground px-6 shadow-lg backdrop-blur-sm">
+          <div className="flex items-center">
+            <h1 className="text-background text-2xl font-bold">NM</h1>
           </div>
-          <nav className="hidden md:flex md:grow">
-            <ul className="flex grow flex-wrap items-center justify-center gap-4 text-sm lg:gap-8">
+
+          <nav className="hidden md:flex grow justify-center">
+            <ul className="flex items-center space-x-2 lg:space-x-6">
               {navBarItems.map(({ label, link }) => (
                 <li key={label}>
                   <Link
                     href={link}
-                    className="flex items-center text-background transition hover:text-background/80"
+                    className="text-background font-semibold transition duration-200 text-sm lg:text-lg"
                   >
                     {label}
                   </Link>
@@ -31,9 +43,60 @@ export const Header = () => {
             </ul>
           </nav>
 
-          <ThemeToggle />
+          <button
+            className="md:hidden text-background"
+            onClick={toggleMenu}
+            aria-label="Toggle navigation"
+          >
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+
+
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              href="/path-to-cv.pdf"
+              download
+              className="border-2 border-background text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full hover:bg-background hover:text-foreground transition"
+            >
+              Download CV
+            </Link>
+            <ThemeToggle />
+          </div>
+
+          {isMenuOpen && (
+            <div className="absolute top-14 left-0 w-full bg-foreground shadow-lg md:hidden">
+              <ul className="flex flex-col items-center space-y-4 py-4">
+                {navBarItems.map(({ label, link }) => (
+                  <li key={label}>
+                    <Link
+                      href={link}
+                      className="text-background font-semibold transition duration-200 text-lg"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                <li className="flex items-center space-x-4">
+                  <Link
+                    href="/path-to-cv.pdf"
+                    download
+                    className="border-2 border-background text-background font-semibold py-2 px-6 rounded-full"
+                  >
+                    Download CV
+                  </Link>
+                  <ThemeToggle />
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </header>
   );
 };
+
