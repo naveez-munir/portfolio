@@ -1,22 +1,40 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import MyImage from "@/../public/images/naveezpic.png";
+import MyImage from "@/../public/images/heroImage.svg";
 
 export const ProfileImage = () => {
   return (
-    <motion.div
-      className="flex justify-center sm:mt-auto order-1 sm:order-2"
-      initial={{ opacity: 0, scale: 0.8 }} // Initial state
-      animate={{ opacity: 1, scale: 1 }} // Final state
-      transition={{ duration: 0.8 }} // Animation duration
-    >
-      <Image
-        src={MyImage}
-        alt="my image"
-        priority
-        className="w-auto h-auto md:w-56 md:h-56 lg:w-96 lg:h-96 md:mb-10 rounded-full object-cover shadow-custom"
-      />
-    </motion.div>
+    <div className="hidden lg:flex relative w-full lg:w-1/2 h-full items-center justify-center">
+      <motion.div
+        className="relative w-full max-w-2xl"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        <motion.div
+          className="absolute top-1/4 right-10 w-8 h-8 border-4 border-yellow-400 rounded-full"
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false }}
+        ></motion.div>
+        <motion.div
+          className="absolute top-1/3 -right-4 w-4 h-4 bg-purple-400 rounded-full"
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false }}
+        ></motion.div>
+
+        <Image
+          src={MyImage}
+          alt="hero image"
+          className="w-full h-auto"
+          priority
+        />
+      </motion.div>
+    </div>
   );
 };

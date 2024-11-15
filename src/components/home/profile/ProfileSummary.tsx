@@ -1,14 +1,15 @@
 import { ProfileImage } from "./ProfileImage";
 import { IntroSection } from "./Intro";
-import { ProfessionalHighlights } from "./ProfessionalHighlights";
-
 export const ProfileSummary = () => {
   return (
-    <div className="w-full h-2/4 p-4 bg-background text-foreground">
-      <div className="flex flex-col mt-40 justify-around sm:flex-row">
-        <IntroSection />
-        <ProfileImage />
-        <ProfessionalHighlights />
+    <div className="relative min-h-[80vh] bg-background overflow-hidden">
+      <div className="absolute top-0 right-0 w-full h-full bg-foreground">
+        <div className="max-w-5xl mx-auto h-full px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between h-full pt-20 lg:pt-0">
+            <IntroSection />
+            <ProfileImage />
+          </div>
+        </div>
       </div>
     </div>
   );
