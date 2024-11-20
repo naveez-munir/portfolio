@@ -1,8 +1,8 @@
-.startColumn2 {
+.start-column-2 {
   grid-column-start: 2;
 }
 
-.startColumn3 {
+.start-column-3 {
   grid-column-start: 3;
 }
 
@@ -30,21 +30,4 @@
 
 .animateSlideOut {
   animation: slideOut 0.3s forwards;
-}
-
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-}
-
-.swiper-slide div {
-  width: 100%;
 }

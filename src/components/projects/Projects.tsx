@@ -14,26 +14,29 @@ function BrandingPanel() {
 
   const getVisibility = (index: number) => {
     if (index === hoveredIndex) return true;
-
     if (hoveredIndex === null) return true;
 
-    const hoveredRow = Math.floor(hoveredIndex / 4) + 1;
-    const hoveredColumn = (hoveredIndex % 4) + 1;
-    const currentRow = Math.floor(index / 4) + 1;
-    const currentColumn = (index % 4) + 1;
-
-    const hoveredColumns =
-      hoveredColumn === 4 ? [3, 4] : [hoveredColumn, hoveredColumn + 1];
+    const totalColumns = 3;
+    const hoveredRow = Math.floor(hoveredIndex / totalColumns);
+    const hoveredColumn = hoveredIndex % totalColumns;
+    const currentRow = Math.floor(index / totalColumns);
+    const currentColumn = index % totalColumns;
+    if (hoveredColumn === totalColumns - 1) {
+      return !(
+        currentColumn === hoveredColumn - 1 &&
+        Math.abs(currentRow - hoveredRow) <= 1
+      );
+    }
 
     return !(
-      (hoveredRow === currentRow || Math.abs(hoveredRow - currentRow) === 1) &&
-      hoveredColumns.includes(currentColumn)
+      Math.abs(currentRow - hoveredRow) <= 1 &&
+      (currentColumn === hoveredColumn || currentColumn === hoveredColumn + 1)
     );
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2 justify-center w-[318.2px] sm:w-auto mx-auto sm:max-xl:mx-6 ">
-      {ProjectsData.map((project, index) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 md:gap-2 justify-center w-[318.2px] sm:w-auto mx-auto sm:max-xl:mx-6">
+      {ProjectsData.slice(0, 6).map((project, index) => (
         <ProjectCard
           key={project.id}
           logo={project.src}
@@ -44,8 +47,8 @@ function BrandingPanel() {
           height={project.height}
           mobileHeight={project.mobileHeight}
           isHovered={index === hoveredIndex}
-          hoveredColumn={hoveredIndex && (hoveredIndex % 4) + 1}
-          rowIndex={Math.floor(index / 4) + 1}
+          hoveredColumn={hoveredIndex !== null ? (hoveredIndex % 3) + 1 : null}
+          rowIndex={Math.floor(index / 3) + 1}
           isVisible={getVisibility(index)}
           onMouseEnter={!mobileView ? () => setHoveredIndex(index) : undefined}
           onMouseLeave={!mobileView ? () => setHoveredIndex(null) : undefined}

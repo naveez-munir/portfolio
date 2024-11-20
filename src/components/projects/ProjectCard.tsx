@@ -8,7 +8,7 @@ import { getCompanyBySlug } from "@/utils";
 
 function getStartColumn(hoveredColumn: number | null) {
   if (hoveredColumn === 2) return "start-column-2";
-  if (hoveredColumn === 3 || hoveredColumn === 4) return "start-column-3";
+  if (hoveredColumn === 3) return "start-column-3";
   return "";
 }
 
@@ -82,9 +82,7 @@ function ProjectCard({
           </div>
           <div className="absolute bottom-16 left-8 text-white">
             <p className="text-sm font-normal">
-              {company
-                ? company.subText
-                : "Global leader in software for the staffing industry. 10,000+ companies rely on Bullhorn to power their businesses."}
+              {company?.subText || "Company description"}
             </p>
           </div>
           <div className="absolute bottom-8 right-8">
