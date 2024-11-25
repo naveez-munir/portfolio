@@ -4,12 +4,12 @@ export const SmallDots = () => {
   return (
     <div className="absolute -z-10">
       <svg
-        className="fill-blue-500"
         xmlns="http://www.w3.org/2000/svg"
         width={164}
         height={41}
         viewBox="0 0 164 41"
         fill="none"
+        className="fill-accent w-[120px] md:w-[164px]"
       >
         <circle cx={1} cy={8} r={1} fillOpacity="0.24" />
         <circle cx={1} cy={1} r={1} fillOpacity="0.16" />
