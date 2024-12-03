@@ -1,58 +1,51 @@
-import { useEffect, useState } from "react";
-import { useMedia } from "react-use";
+import { useEffect, useState } from 'react';
+import { useMedia } from 'react-use';
+import ProjectCard from './ProjectCard';
 import { SCREENS } from "@/utils/breakpoints";
-import { ProjectsData } from "@/data/projectsData";
-import ProjectCard from "./ProjectCard";
+import { projectsData } from '@/data/projectsData';
+
 function BrandingPanel() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const isDesktop = useMedia(`(min-width: ${SCREENS.xl})`);
+  const isDesktop = useMedia(`(min-width: ${SCREENS.xl})`, false);
   const [mobileView, setMobileView] = useState(true);
 
   useEffect(() => {
     setMobileView(!isDesktop);
   }, [isDesktop]);
+  const projects = projectsData;
+
 
   const getVisibility = (index: number) => {
     if (index === hoveredIndex) return true;
+
     if (hoveredIndex === null) return true;
 
-    const totalColumns = 3;
-    const hoveredRow = Math.floor(hoveredIndex / totalColumns);
-    const hoveredColumn = hoveredIndex % totalColumns;
-    const currentRow = Math.floor(index / totalColumns);
-    const currentColumn = index % totalColumns;
-    if (hoveredColumn === totalColumns - 1) {
-      return !(
-        currentColumn === hoveredColumn - 1 &&
-        Math.abs(currentRow - hoveredRow) <= 1
-      );
-    }
+    const hoveredRow = Math.floor(hoveredIndex / 3) + 1;
+    const hoveredColumn = (hoveredIndex % 3) + 1;
+    const currentRow = Math.floor(index / 3) + 1;
+    const currentColumn = (index % 3) + 1;
+
+    const hoveredColumns =
+      hoveredColumn === 3 ? [2, 3] : [hoveredColumn, hoveredColumn + 1];
 
     return !(
-      Math.abs(currentRow - hoveredRow) <= 1 &&
-      (currentColumn === hoveredColumn || currentColumn === hoveredColumn + 1)
+      (hoveredRow === currentRow || Math.abs(hoveredRow - currentRow) === 1) &&
+      hoveredColumns.includes(currentColumn)
     );
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 md:gap-2 justify-center w-[318.2px] sm:w-auto mx-auto sm:max-xl:mx-6">
-      {ProjectsData.slice(0, 6).map((project, index) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1 md:gap-2 justify-center w-[318.2px] sm:w-auto mx-auto sm:max-xl:mx-6 ">
+      {projects.map((project, index) => (
         <ProjectCard
           key={project.id}
-          logo={project.src}
-          hoverLogo={project.hoverSrc}
-          alt={project.alt}
-          width={project.width}
-          mobileWidth={project.mobileWidth}
-          height={project.height}
-          mobileHeight={project.mobileHeight}
+          project={project}
           isHovered={index === hoveredIndex}
-          hoveredColumn={hoveredIndex !== null ? (hoveredIndex % 3) + 1 : null}
+          hoveredColumn={hoveredIndex && (hoveredIndex % 3) + 1}
           rowIndex={Math.floor(index / 3) + 1}
           isVisible={getVisibility(index)}
           onMouseEnter={!mobileView ? () => setHoveredIndex(index) : undefined}
           onMouseLeave={!mobileView ? () => setHoveredIndex(null) : undefined}
-          slug={project.slug}
         />
       ))}
     </div>

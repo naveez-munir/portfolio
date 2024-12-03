@@ -1,11 +1,27 @@
-export type Project = {
+import { StaticImageData } from "next/image";
+
+export type ProjectData = {
   id: number;
-  src: string;
-  hoverSrc: string;
+  src: StaticImageData;
+  hoverSrc: StaticImageData;
   alt: string;
   width: number;
-  height: number;
   mobileWidth: number;
+  height: number;
   mobileHeight: number;
-  slug: string
+  gradientColor: string;
+  slug: string;
+  techStack: string[];
+  duration: string;
+  highlights: string[];
+};
+
+export type ProjectCardProps = {
+  project: ProjectData;
+  isVisible: boolean;
+  isHovered: boolean;
+  rowIndex: number;
+  hoveredColumn: number | null;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 };
