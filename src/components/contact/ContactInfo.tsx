@@ -41,23 +41,14 @@ export const ContactForm = () => {
   };
 
   return (
-    <section
-      className="w-full relative pt-10 pb-28 overflow-hidden"
-      // You can add your background image here:
-      style={{
-        backgroundImage: "url('/images/blob-scene-haikei (5).svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <section className="w-full relative pt-10 pb-28 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h3 className="text-accent text-sm font-medium uppercase tracking-wider">
             HAVE QUESTION CONTACT US?
           </h3>
           <motion.h2
-            className="mt-6 text-4xl md:text-5xl font-bold"
+            className="mt-6 text-4xl md:text-5xl font-bold text-foreground"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -73,15 +64,19 @@ export const ContactForm = () => {
             {ContactInfo.map((item, index) => (
               <motion.div
                 key={index}
-                className="flex items-center p-6 bg-accent rounded-xl shadow-sm"
+                className="flex items-center p-6 bg-background rounded-xl shadow-custom border border-borderColor"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-foreground/10 p-4 rounded-lg">{item.icon}</div>
+                <div className="bg-accent/10 p-4 rounded-lg text-accent">
+                  {item.icon}
+                </div>
                 <div className="ml-6">
-                  <h4 className="text-lg font-semibold">{item.title}</h4>
-                  <p className="text-gray-600">{item.details}</p>
+                  <h4 className="text-lg font-semibold text-foreground">
+                    {item.title}
+                  </h4>
+                  <p className="text-foreground/60">{item.details}</p>
                 </div>
               </motion.div>
             ))}
@@ -90,7 +85,7 @@ export const ContactForm = () => {
           <div className="lg:col-span-2">
             <motion.form
               onSubmit={handleSubmit}
-              className="bg-accent p-8 rounded-2xl shadow-lg"
+              className="bg-background p-8 rounded-2xl shadow-custom border border-borderColor"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -99,7 +94,7 @@ export const ContactForm = () => {
                 <input
                   type="text"
                   placeholder="Your Name *"
-                  className="w-full p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-accent"
+                  className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent"
                   value={formData.name}
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
@@ -108,7 +103,7 @@ export const ContactForm = () => {
                 <input
                   type="email"
                   placeholder="Your Email *"
-                  className="w-full p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-accent"
+                  className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent"
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
@@ -119,7 +114,7 @@ export const ContactForm = () => {
               <textarea
                 placeholder="Your Message *"
                 rows={6}
-                className="w-full p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-accent mt-6"
+                className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent mt-6"
                 value={formData.message}
                 onChange={(e) =>
                   setFormData({ ...formData, message: e.target.value })
@@ -128,7 +123,7 @@ export const ContactForm = () => {
 
               <motion.button
                 type="submit"
-                className="mt-6 bg-foreground text-white px-8 py-4 rounded-lg font-medium hover:bg-accent/90 transition-colors"
+                className="mt-6 bg-accent text-background px-8 py-4 rounded-lg font-medium hover:bg-accent/90 transition-colors"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
