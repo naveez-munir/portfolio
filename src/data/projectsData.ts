@@ -24,14 +24,14 @@ export const projectsData: ProjectData[] = [
     mobileHeight: 44,
     gradientColor: 'rgba(254, 107, 1, 0), #fe6b01',
     slug: 'groovePacker',
-    techStack: ['Expo', 'React Native', 'Rails', 'Node.js'],
+    techStack: ['Expo', 'React Native','Jest' ,'Rails', 'Node.js', 'Aws', 'Vercel'],
     duration: '2022-2023',
     highlights: [
-      'Enhanced UI with new features',
-      'Optimized codebase',
-      'Increased test coverage to 80%',
-      'Handled deployment pipeline',
-      'Resolved critical bugs'
+      'Optimized and Refactored Code: Improved code efficiency and maintainability by refactoring existing code.',
+      'Increased Test Coverage to 80%: Implemented unit and integration tests using Jest and Enzyme to ensure code reliability',
+      'Handled Deployment Pipeline: Managed automated deployment pipeline for smooth production releases.',
+      'Identified and resolved high-priority bugs, ensuring system stability',
+      'Enhanced UI with New Features: Added and improved UI components for a better user experience.',
     ]
   },
   {
@@ -64,12 +64,12 @@ export const projectsData: ProjectData[] = [
     mobileHeight: 44,
     gradientColor: 'rgba(245, 166, 35, 0), #f5a623',
     slug: 'leafCloud',
-    techStack: ['Next.js', 'TailwindCSS', 'AWS Serverless'],
+    techStack: ['Next.js', 'TailwindCSS', 'AWS Serverless', 'stripe','clerk auth'],
     duration: '2023-2024',
     highlights: [
       'Built serverless backend',
-      'Developed landing page',
-      'Implemented authentication & payment'
+      'Implemented clerk auth',
+      'Implemented stripe payment'
     ]
   },
   {
@@ -83,31 +83,33 @@ export const projectsData: ProjectData[] = [
     mobileHeight: 27,
     gradientColor: 'rgba(14, 99, 244, 0), #0e63f4',
     slug: 'pms',
-    techStack: ['MERN Stack', 'GitHub Actions', 'EC2'],
+    techStack: ['MERN Stack','TailwindCSS', 'GitHub Actions', 'EC2'],
     duration: '2023-2024',
     highlights: [
-      'Full-stack payroll system',
-      'CI/CD implementation',
-      'Automated reporting system'
+      'Developed Payroll Management System: Created a comprehensive payroll management system for both admins and non-admin users, including salary management, leave, reimbursement, and loan request handling. ',
+      'Built with MERN Stack: Developed the system using the MERN stack (MongoDB, Express, React, Node.js) to ensure scalability and responsiveness.',
+      'CI/CD Implementation: Set up Continuous Integration and Continuous Deployment (CI/CD) pipelines to automate testing and streamline the deployment process.',
+      'Automated Reporting System: Implemented an automated reporting feature for easy salary report generation and distribution of salary slips to employees.'
     ]
   },
   {
     id: 5,
     src: LogoRio,
     hoverSrc: BgRio,
-    alt: 'Rio Board',
+    alt: 'Rio Bot',
     width: 200,
     height: 80,
     mobileWidth: 109,
     mobileHeight: 34,
     gradientColor: 'rgba(25, 175, 167, 0), #19afa7',
-    slug: 'rioBoard',
-    techStack: ['Nest.js', 'PostgreSQL', 'Discord.js API'],
+    slug: 'rioBot',
+    techStack: ['Nest.js', 'PostgreSQL', 'Discord.js API','AWS EC2'],
     duration: '2023-2024',
     highlights: [
-      'Automated attendance tracking',
-      'Integrated reporting features',
-      'Efficient data management'
+      'Automated Attendance Tracking: Developed a system for seamless, automatic attendance tracking.',
+      'Leave Management System: Implemented a feature for users to request leaves and for admins to manage and approve requests',
+      'Reporting Features: Integrated two types of reports for admin and non-admin users to enhance data visibility.',
+      'Developed Discord Bot: Created and deployed a Discord bot to automate tasks and enhance user interaction.'
     ]
   },
   {
