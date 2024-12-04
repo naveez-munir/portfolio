@@ -2,37 +2,26 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
 import Link from "next/link";
+import styles from "./project.module.css";
 import { SCREENS } from "@/utils/breakpoints";
-import { ProjectCardProps, Company } from "@/types/projectCardProps";
-import { getCompanyBySlug } from "@/utils";
+import { ProjectCardProps } from "@/types/project";
 
 function getStartColumn(hoveredColumn: number | null) {
-  if (hoveredColumn === 2) return "start-column-2";
-  if (hoveredColumn === 3) return "start-column-3";
+  if (hoveredColumn === 2 || hoveredColumn === 3) return styles.startColumn2;
   return "";
 }
 
 function ProjectCard({
-  logo,
-  hoverLogo,
-  alt,
-  width,
-  mobileWidth,
-  height,
-  mobileHeight,
+  project,
   isVisible,
   isHovered,
   hoveredColumn,
   rowIndex,
   onMouseEnter,
   onMouseLeave,
-  slug,
 }: ProjectCardProps) {
   const isDesktop = useMedia(`(min-width: ${SCREENS.md})`, false);
   const [isMobile, setIsMobile] = useState(false);
-  const company: Company | undefined | null = slug
-    ? getCompanyBySlug(slug)
-    : null;
 
   useEffect(() => {
     setIsMobile(!isDesktop);
@@ -45,64 +34,82 @@ function ProjectCard({
     isHovered && rowIndex === 2
       ? `row-start-1 ${getStartColumn(hoveredColumn)}`
       : "";
-
   return (
     <Link
-      href={`/work/${slug}`}
-      className={`group bg-foreground flex items-center justify-center rounded-lg transition-all duration-500 cursor-pointer ${rowStyle} ${scaleClass} ${
+      href={`#`}
+      className={`group bg-gray-800 flex items-center justify-center rounded-lg transition-all duration-500 cursor-pointer ${rowStyle} ${scaleClass} ${
         isVisible ? "" : "hidden"
       } ${isHovered ? "" : "h-[157.5px] md:h-[230px] lg:h-[287.6px]"}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       {isHovered ? (
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full overflow-hidden">
           <Image
-            src={hoverLogo}
-            alt={alt}
+            src={project.hoverSrc}
+            alt={project.alt}
             layout="fill"
             objectFit="cover"
             className="rounded-lg"
             priority
           />
-          <div
-            className="absolute top-0 left-0 w-full h-full rounded-lg"
-            style={{
-              background: `linear-gradient(to bottom, var(--accent), var(--foreground))`,
-            }}
-          />
-          <div className="absolute top-4 left-8">
-            <Image
-              src={logo}
-              alt="Overlay Logo"
-              width={width}
-              height={height}
-              priority
-            />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90" />
+
+          {/* Project Header */}
+          <div className="absolute top-4 left-4 right-4">
+            <div className="bg-black/40 p-4 rounded-lg backdrop-blur-sm">
+              <Image
+                src={project.src}
+                alt="Overlay Logo"
+                width={project.width}
+                height={project.height}
+                priority
+              />
+              <p className="text-white/90 text-sm font-medium mt-2">
+                {project?.duration}
+              </p>
+            </div>
           </div>
-          <div className="absolute bottom-16 left-8 text-white">
-            <p className="text-sm font-normal">
-              {company?.subText || "Company description"}
-            </p>
-          </div>
-          <div className="absolute bottom-8 right-8">
-            <Image
-              src="/img/right_arrow.svg"
-              alt="Arrow Icon"
-              width={30}
-              height={30}
-              priority
-            />
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {project.techStack?.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 bg-white/10 rounded-full text-white/90 text-xs font-medium hover:bg-white/20 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <ul className="space-y-2">
+                {project.highlights?.map((highlight, index) => (
+                  <li
+                    key={index}
+                    className="flex items-start gap-2 text-white/80 hover:text-white transition-colors"
+                  >
+                    <span className="text-accent">•</span>
+                    <span className="text-sm leading-relaxed">{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       ) : (
-        <Image
-          src={logo}
-          alt={alt}
-          width={isMobile ? mobileWidth : width}
-          height={isMobile ? mobileHeight : height}
-          priority
-        />
+        <div className="flex flex-col items-center gap-2">
+          <Image
+            src={project.src}
+            alt={project.alt}
+            width={isMobile ? project.mobileWidth : project.width}
+            height={isMobile ? project.mobileHeight : project.height}
+            priority
+          />
+          <span className="text-accent text-sm font-medium uppercase tracking-wider">
+            {project.alt}
+          </span>
+        </div>
       )}
     </Link>
   );
