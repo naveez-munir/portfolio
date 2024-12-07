@@ -1,15 +1,18 @@
-
-export type Skill = {
- name: string;
- position: {
-  mobile: string;
-  desktop: string;
-};
- size: string;
- delay: string;
- opacity: string;
-}
+import { LucideIcon } from "lucide-react";
+import { StaticImageData } from "next/image";
 
 export type SkillsSectionProps = {
   selectedTab : number
+}
+
+export type SkillTabs = {
+  name: string,
+  icon: LucideIcon,
+}
+
+export type SkillLineIconProps = {
+  LeftIcon: StaticImageData;
+  RightIcon: StaticImageData;
+  LeftName:  string;
+  RightName: string;
 }
