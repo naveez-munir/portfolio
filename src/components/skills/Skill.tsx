@@ -11,7 +11,7 @@ import { SkillsSection } from "./SkillsSection";
 export const Skills = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   return (
-    <section>
+    <section id="skills">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-foreground">
           CRAFTING DIGITAL EXCELLENCE

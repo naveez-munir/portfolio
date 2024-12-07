@@ -11,19 +11,19 @@ interface ContactFormData {
 
 const ContactInfo = [
   {
-    icon: <Mail className="h-8 w-8" />,
+    icon: <Phone className="h-8 w-8" />,
     title: "Phone No",
-    details: "username@domain.com",
+    details: "+923114128859",
   },
   {
-    icon: <Phone className="h-8 w-8" />,
+    icon: <Mail className="h-8 w-8" />,
     title: "Email Address",
-    details: "+(123) 456 7890",
+    details: "naveezmunir@gmail.com",
   },
   {
     icon: <MapPin className="h-8 w-8" />,
     title: "Location",
-    details: "Block Street No 2101 USA",
+    details: "Lahore Pakistan",
   },
 ];
 
@@ -41,7 +41,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="w-full relative pt-10 pb-28 overflow-hidden bg-background">
+    <section id="contact" className="w-full relative pt-10 pb-28 overflow-hidden bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h3 className="text-accent text-sm font-medium uppercase tracking-wider">

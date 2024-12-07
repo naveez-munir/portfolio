@@ -12,7 +12,7 @@ export const ResumeSection = () => {
   });
 
   return (
-    <div id="resume" className="py-20 relative">
+    <div id="experience" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -20,7 +20,7 @@ export const educationData : ResumeEducationDataType[] = [
     degree: "Mobile App Development",
     institution: "Udacity & Coursera Certifications",
     description:
-      "Completed extensive courses in mobile app development, specializing in cross-platform technologies and mobile app architecture.",
+      "Completed extensive courses in mobile app development, specializing in cross-platform technologies.",
   },
 ];
 

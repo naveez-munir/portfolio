@@ -3,14 +3,28 @@ import { Mail , Github , Linkedin} from "lucide-react";
 
 export const skills: string[] = [
   "React.js",
+  "Next.js",
+  "Vanilla js",
+  "TypeScript",
+  "Expo",
+  "React Native",
+  "HTML",
+  "CSS",
+  "Shadcn",
+  "Tailwind CSS",
   "Node.js",
   "Express.js",
+  "Jest",
+  "Enzyme",
   "MongoDB",
-  "TypeScript",
-  "Next.js",
-  "Tailwind CSS",
+  "PostgreSQL",
+  "MySQL",
   "Git",
   "AWS Cloud",
+  "CI/CD",
+  "Slack",
+  "Jira",
+  "Vercel"
  ];
 
  export const typewriterWords = [
