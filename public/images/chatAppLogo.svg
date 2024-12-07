@@ -1,0 +1,16 @@
+
+
+
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle Background -->
+  <circle cx="100" cy="100" r="90" fill="#10B981"/>
+
+  <!-- Chat Bubbles -->
+  <path d="M60 80 h50 a20 20 0 0 1 20 20 v30 a20 20 0 0 1 -20 20 h-50 a20 20 0 0 1 -20 -20 v-30 a20 20 0 0 1 20 -20" fill="white"/>
+  <path d="M90 70 h50 a20 20 0 0 1 20 20 v30 a20 20 0 0 1 -20 20 h-50 a20 20 0 0 1 -20 -20 v-30 a20 20 0 0 1 20 -20" fill="#134E4A"/>
+
+  <!-- AI Dots -->
+  <circle cx="75" cy="100" r="5" fill="#10B981"/>
+  <circle cx="95" cy="100" r="5" fill="#10B981"/>
+  <circle cx="115" cy="100" r="5" fill="white"/>
+</svg>

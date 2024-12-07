@@ -1,0 +1,16 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Circle -->
+  <circle cx="100" cy="100" r="90" fill="#2563eb"/>
+
+  <!-- Dollar Symbol -->
+  <text x="75" y="120" font-family="Arial" font-size="75" fill="white" font-weight="bold">$</text>
+
+  <!-- PMS Letters -->
+  <text x="120" y="120" font-family="Arial" font-size="45" fill="white" font-weight="bold">P</text>
+  <text x="130" y="95" font-family="Arial" font-size="30" fill="white" font-weight="bold">M</text>
+  <text x="140" y="120" font-family="Arial" font-size="30" fill="white" font-weight="bold">S</text>
+
+  <!-- Wave Lines (representing flow of money/data) -->
+  <path d="M40 140 Q70 120 100 140 T160 140" stroke="white" fill="none" stroke-width="4"/>
+  <path d="M40 150 Q70 130 100 150 T160 150" stroke="white" fill="none" stroke-width="4"/>
+</svg>
