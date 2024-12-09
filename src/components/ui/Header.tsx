@@ -23,7 +23,7 @@ export const Header = () => {
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto w-11/12 px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-full bg-foreground px-6 shadow-lg backdrop-blur-sm">
+        <div className="relative flex h-14 items-center justify-between gap-3 rounded-full bg-accent px-6 shadow-lg backdrop-blur-sm">
           <div className="flex items-center">
             <h1 className="text-background text-2xl font-bold">NM</h1>
           </div>
@@ -60,7 +60,7 @@ export const Header = () => {
             <Link
               href="/path-to-cv.pdf"
               download
-              className="border-2 border-background text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full hover:bg-background hover:text-foreground transition"
+              className="border-2 border-borderColor text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full hover:bg-background hover:text-foreground transition"
             >
               Download CV
             </Link>

@@ -33,11 +33,38 @@ export const ContactForm = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log(formData);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -93,6 +120,7 @@ export const ContactForm = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
                   type="text"
+                  required
                   placeholder="Your Name *"
                   className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent"
                   value={formData.name}
@@ -102,6 +130,7 @@ export const ContactForm = () => {
                 />
                 <input
                   type="email"
+                  required
                   placeholder="Your Email *"
                   className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent"
                   value={formData.email}
@@ -113,6 +142,7 @@ export const ContactForm = () => {
 
               <textarea
                 placeholder="Your Message *"
+                required
                 rows={6}
                 className="w-full p-4 rounded-lg border border-borderColor bg-background text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-accent mt-6"
                 value={formData.message}
@@ -127,7 +157,7 @@ export const ContactForm = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Send Message
+                {isLoading ? 'Sending...' : 'Send Message'}
               </motion.button>
             </motion.form>
           </div>
