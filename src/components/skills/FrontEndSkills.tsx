@@ -1,35 +1,52 @@
 import React from "react";
-import Logo01 from "@/../public/images/react_icon.svg";
-import Logo02 from "@/../public/images/html_icon.svg";
-import Logo03 from "@/../public/images/typescript.svg";
-import Logo04 from "@/../public/images/css_icon.svg";
-import Logo05 from "@/../public/images/nextjs.svg";
-import Logo06 from "@/../public/images/javascript.svg";
+import ReactIcon from "@/../public/images/react_icon.svg";
+import HtmlIcon from "@/../public/images/html_icon.svg";
+import TsIcon from "@/../public/images/typescript.svg";
+import CssIcon from "@/../public/images/css_icon.svg";
+import NextJsIcon from "@/../public/images/nextjs.svg";
+import JsIcon from "@/../public/images/javascript.svg";
+import TailwindIcon from "@/../public/images/icon-tailwind-css.svg";
+import ShadCnIcon from "@/../public/images/shadcn.png";
 import { MidlineIcons } from "./MidLineIcons";
 import { TopLineIcons } from "./TopLineIcons";
 import { BottomLineIcons } from "./BottomLineIcons";
+import { SkillIcon } from "./SkillIcon";
 
 export const FrontEndSkills = () => {
   return (
     <>
       <MidlineIcons
-        RightIcon={Logo04}
-        LeftIcon={Logo02}
+        RightIcon={CssIcon}
+        LeftIcon={HtmlIcon}
         LeftName="HTML"
         RightName="CSS"
       />
       <TopLineIcons
-        RightIcon={Logo05}
-        LeftIcon={Logo01}
+        RightIcon={NextJsIcon}
+        LeftIcon={ReactIcon}
         LeftName="React"
         RightName="Next.js"
       />
       <BottomLineIcons
-        RightIcon={Logo03}
-        LeftIcon={Logo06}
+        RightIcon={TsIcon}
+        LeftIcon={JsIcon}
         LeftName="JavaScript"
         RightName="TypeScript"
       />
+      <div className="absolute -translate-x-[292px] hidden sm:block">
+        <SkillIcon
+         src={TailwindIcon}
+         name="Tailwind"
+         isSmallIcon={true}
+        />
+      </div>
+      <div className="absolute translate-x-[292px] hidden sm:block">
+      <SkillIcon
+         src={ShadCnIcon}
+         name="Shadcn"
+         isSmallIcon={true}
+        />
+      </div>
     </>
   );
 };
