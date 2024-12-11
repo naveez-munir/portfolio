@@ -11,36 +11,36 @@
 }
 
 .light {
-  --background: #fcf2d7;
-  --foreground: #3e1b6d;
-  --border-color: #b491c8;
-  --accent: #b491c8;
-  --shadow-color: rgba(255, 182, 193, 0.4);
-}
+  --background: #fdfbf7;
+  --foreground: #2d4f67;
+  --border-color: #64a6b3;
+  --accent: #e17c77;
+  --shadow-color: rgba(225, 124, 119, 0.15);
+ }
 
-.dark {
-  --background: #1a202c;
-  --foreground: #e2e8f0;
-  --border-color: #2d3748;
-  --accent: #e53e3e;
-  --shadow-color: rgba(0, 0, 0, 0.5);
-}
+ .dark {
+  --background: #1a1b26;
+  --foreground: #e5e3f4;
+  --border-color: #4a4b66;
+  --accent: #bb9af7;
+  --shadow-color: rgba(187, 154, 247, 0.15);
+ }
 
-.sunset {
-  --background: #ffafbd;
-  --foreground: #2c3e50;
-  --border-color: #f76c6c;
-  --accent: #f76c6c;
-  --shadow-color: rgba(255, 143, 90, 0.4);
-}
+ .sunset {
+  --background: #fff1f1;
+  --foreground: #2c3440;
+  --border-color: #ff6b6b;
+  --accent: #ff8787;
+  --shadow-color: rgba(255, 107, 107, 0.2);
+ }
 
-.oceanic {
-  --background: #008080;
-  --foreground: #ffffff;
-  --border-color: #00ced1;
-  --accent: #00ced1;
-  --shadow-color: rgba(0, 206, 209, 0.4);
-}
+ .oceanic {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --border-color: #38bdf8;
+  --accent: #0ea5e9;
+  --shadow-color: rgba(14, 165, 233, 0.2);
+ }
 
 body {
   color: var(--foreground);

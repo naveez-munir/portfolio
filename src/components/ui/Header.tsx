@@ -4,17 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "../theme/ThemeToggle";
 import { Menu, X } from "lucide-react"
+import { navItems } from "@/data/navItem";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navBarItems = [
-    { label: "About", link: "#about" },
-    { label: "Skills", link: "#skills" },
-    { label: "Experience", link: "#experience" },
-    { label: "Projects", link: "#projects" },
-    { label: "Contact", link: "#contact" },
-  ];
+  const navBarItems = navItems;
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -23,80 +19,164 @@ export const Header = () => {
   return (
     <header className="fixed top-2 z-30 w-full md:top-6">
       <div className="mx-auto w-11/12 px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-full bg-accent px-6 shadow-lg backdrop-blur-sm">
-          <div className="flex items-center">
+        <motion.div
+          layout
+          className={`relative flex h-14 items-center justify-between gap-3
+            bg-accent px-6 shadow-lg backdrop-blur-sm
+            ${isMenuOpen ? 'rounded-t-2xl md:rounded-full' : 'rounded-full'}
+          `}
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
+        >
+          <motion.div
+            className="flex items-center"
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
             <h1 className="text-background text-2xl font-bold">NM</h1>
-          </div>
+          </motion.div>
 
-          <nav className="hidden md:flex grow justify-center">
+          <nav className="hidden lg:flex grow justify-center">
             <ul className="flex items-center space-x-2 lg:space-x-6">
-              {navBarItems.map(({ label, link }) => (
-                <li key={label}>
+              {navBarItems.map(({ label, link }, index) => (
+                <motion.li
+                  key={label}
+                  initial={{ y: -20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.2 * (index + 1),
+                    duration: 0.8,
+                    ease: "easeOut"
+                  }}
+                >
                   <Link
                     href={link}
-                    className="text-background font-semibold transition duration-200 text-sm lg:text-lg"
+                    className="text-background font-semibold hover:text-background/80 transition-all duration-500 text-sm lg:text-lg"
                   >
                     {label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </nav>
 
-          <button
-            className="md:hidden text-background"
+          <motion.button
+            className="md:hidden text-background hover:text-background/80 transition-all duration-300"
             onClick={toggleMenu}
             aria-label="Toggle navigation"
+            whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.95, transition: { duration: 0.3 } }}
           >
-            {isMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={isMenuOpen ? 'close' : 'open'}
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+              >
+                {isMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </motion.button>
 
-
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/path-to-cv.pdf"
-              download
-              className="border-2 border-borderColor text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full hover:bg-background hover:text-foreground transition"
+          <motion.div
+            className="hidden md:flex items-center space-x-4"
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              whileTap={{ scale: 0.95, transition: { duration: 0.3 } }}
             >
-              Download CV
-            </Link>
+              <Link
+                href="https://drive.google.com/file/d/1QU71Lh49DjFdXM_3wMd1yCRyipR7uPNW/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-background text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full
+                  hover:bg-background hover:text-accent transition-all duration-500"
+              >
+                Download CV
+              </Link>
+            </motion.div>
             <ThemeToggle />
-          </div>
+          </motion.div>
 
-          {isMenuOpen && (
-            <div className="absolute top-14 left-0 w-full bg-foreground shadow-lg md:hidden">
-              <ul className="flex flex-col items-center space-y-4 py-4">
-                {navBarItems.map(({ label, link }) => (
-                  <li key={label}>
-                    <Link
-                      href={link}
-                      className="text-background font-semibold transition duration-200 text-lg"
-                      onClick={() => setIsMenuOpen(false)}
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute left-0 right-0 top-14 md:hidden overflow-hidden"
+              >
+                <motion.div
+                  className="bg-accent rounded-b-2xl shadow-lg"
+                  initial={{ y: -10 }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                  <ul className="flex flex-col items-center space-y-4 py-6">
+                    {navBarItems.map(({ label, link }, index) => (
+                      <motion.li
+                        key={label}
+                        className="w-full px-6"
+                        initial={{ x: -20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{
+                          delay: 0.15 * index,
+                          duration: 0.5
+                        }}
+                      >
+                        <Link
+                          href={link}
+                          className="text-background font-semibold transition-all duration-500 text-lg block text-center
+                            hover:text-background/80 py-2"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {label}
+                        </Link>
+                      </motion.li>
+                    ))}
+                    <motion.li
+                      className="flex items-center gap-4 pt-4 border-t border-background/10 w-full justify-center"
+                      initial={{ y: 20, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
                     >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-                <li className="flex items-center space-x-4">
-                  <Link
-                    href="/path-to-cv.pdf"
-                    download
-                    className="border-2 border-background text-background font-semibold py-2 px-6 rounded-full"
-                  >
-                    Download CV
-                  </Link>
-                  <ThemeToggle />
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
+                      <motion.div
+                        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+                        whileTap={{ scale: 0.95, transition: { duration: 0.3 } }}
+                      >
+                        <Link
+                          href="https://drive.google.com/file/d/1QU71Lh49DjFdXM_3wMd1yCRyipR7uPNW/view"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border-2 border-background text-background font-semibold py-2 px-6 rounded-full
+                            hover:bg-background hover:text-accent transition-all duration-500"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Download CV
+                        </Link>
+                      </motion.div>
+                      <ThemeToggle />
+                    </motion.li>
+                  </ul>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </header>
   );
 };
-

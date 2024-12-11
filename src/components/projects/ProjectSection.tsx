@@ -4,7 +4,7 @@ import BrandingPanel from "./Projects";
 
 const Projects: React.FC = () => {
   return (
-    <div id="projects" className="w-5/6 mx-auto mt-10">
+    <section id="projects" className="w-5/6 mx-auto mt-10">
       <div className="text-center mb-16">
         <h3 className="text-accent text-sm font-medium uppercase tracking-wider">
           FEATURED PROJECTS
@@ -16,7 +16,7 @@ const Projects: React.FC = () => {
         </h2>
       </div>
       <BrandingPanel />
-    </div>
+    </section>
   );
 };
 

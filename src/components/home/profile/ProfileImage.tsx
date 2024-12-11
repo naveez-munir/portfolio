@@ -14,14 +14,14 @@ export const ProfileImage = () => {
         viewport={{ once: false }}
       >
         <motion.div
-          className="absolute top-1/4 right-10 w-8 h-8 border-4 border-yellow-400 rounded-full"
+          className="absolute top-1/4 right-10 w-8 h-8 border-4 border-accent rounded-full"
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false }}
         ></motion.div>
         <motion.div
-          className="absolute top-1/3 -right-4 w-4 h-4 bg-purple-400 rounded-full"
+          className="absolute top-1/3 -right-4 w-4 h-4 bg-accent rounded-full"
           initial={{ scale: 0, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
@@ -37,4 +37,4 @@ export const ProfileImage = () => {
       </motion.div>
     </div>
   );
-};
+ };

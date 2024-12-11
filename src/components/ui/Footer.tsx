@@ -1,69 +1,53 @@
+'use client'
+import { Github, Linkedin, Twitter } from 'lucide-react';
+
 export const Footer = () => {
   return (
-    <footer className="bg-background border-t border-borderColor mt-24">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-background/50 backdrop-blur-sm border-t border-borderColor mt-24">
+      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         {/* Logo & Social Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div className="mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold text-foreground">Naveez Munir</h3>
-            <p className="text-foreground/60 mt-2">Full Stack Developer</p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <div className="mb-8 md:mb-0">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+              Naveez Munir
+            </h3>
+            <p className="text-foreground/60 mt-2 text-lg">
+              Software Engineer | Full Stack Developer
+            </p>
           </div>
 
-          <div className="flex space-x-6">
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              GitHub
+          <div className="flex items-center space-x-8">
+            <a
+              href="#"
+              className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
+              aria-label="GitHub"
+            >
+              <Github className="w-6 h-6" />
             </a>
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              LinkedIn
+            <a
+              href="#"
+              className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
             </a>
-            <a href="#" className="text-foreground/60 hover:text-accent transition-colors">
-              Twitter
+            <a
+              href="#"
+              className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-6 h-6" />
             </a>
-          </div>
-        </div>
-
-        {/* Links Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Web Development</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Mobile Apps</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Cloud Solutions</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">About</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/60 hover:text-accent">My Story</a></li>
-              <li><a href="#skills" className="text-foreground/60 hover:text-accent">Skills</a></li>
-              <li><a href="#projects" className="text-foreground/60 hover:text-accent">Projects</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Email</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Schedule Call</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Support</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Privacy</a></li>
-              <li><a href="#" className="text-foreground/60 hover:text-accent">Terms</a></li>
-            </ul>
           </div>
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-borderColor pt-8">
-          <p className="text-center text-foreground/60">
-            © Naveez Munir. All rights reserved.
+        <div className="border-t border-borderColor/30 pt-8">
+          <p className="text-center text-foreground/40 text-sm">
+            © {new Date().getFullYear()} Naveez Munir. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
   );
- };
+};
