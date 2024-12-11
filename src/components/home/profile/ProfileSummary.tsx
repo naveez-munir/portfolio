@@ -4,7 +4,7 @@ import { IntroSection } from "./Intro";
 import { motion } from "framer-motion";
 export const ProfileSummary = () => {
   return (
-    <div className="relative min-h-[65vh] md:min-h-[80vh] bg-background overflow-hidden">
+    <div className="relative min-h-[65vh] lg:min-h-[80vh] bg-background overflow-hidden">
       <div className="absolute top-0 right-0 w-full h-full bg-foreground/5">
         <div className="max-w-5xl mx-auto h-full px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between h-full pt-20 lg:pt-0">

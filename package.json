@@ -16,7 +16,8 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "swiper": "^11.1.14"
+    "react-use": "^17.5.1",
+    "resend": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",

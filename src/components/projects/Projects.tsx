@@ -35,7 +35,7 @@ function BrandingPanel() {
   };
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-1 md:gap-2 justify-center w-[318.2px] sm:w-auto mx-auto sm:max-xl:mx-6 ">
+    <div className="grid grid-cols-2  lg:grid-cols-3 gap-1 md:gap-2 justify-center  sm:w-auto mx-auto sm:max-xl:mx-6 ">
       {projects.map((project, index) => (
         <ProjectCard
           key={project.id}

@@ -37,7 +37,7 @@ function ProjectCard({
   return (
     <Link
       href={`#`}
-      className={`group bg-gray-800 flex items-center justify-center rounded-lg transition-all duration-500 cursor-pointer ${rowStyle} ${scaleClass} ${
+      className={`group flex items-center justify-center rounded-lg transition-all duration-500 cursor-pointer ${rowStyle} ${scaleClass} ${
         isVisible ? "" : "hidden"
       } ${isHovered ? "" : "h-[157.5px] md:h-[230px] lg:h-[287.6px]"}`}
       onMouseEnter={onMouseEnter}
@@ -58,13 +58,18 @@ function ProjectCard({
           {/* Project Header */}
           <div className="absolute top-4 left-4 right-4">
             <div className="bg-black/40 p-4 rounded-lg backdrop-blur-sm">
-              <Image
-                src={project.src}
-                alt="Overlay Logo"
-                width={project.width}
-                height={project.height}
-                priority
-              />
+              <div className="flex items-center">
+                <Image
+                  src={project.src}
+                  alt="Overlay Logo"
+                  width={project.width}
+                  height={project.height}
+                  priority
+                />
+                <h1 className="text-white font-bold text-5xl ml-2">
+                  {project.alt}
+                </h1>
+              </div>
               <p className="text-white/90 text-sm font-medium mt-2">
                 {project?.duration}
               </p>
@@ -106,7 +111,7 @@ function ProjectCard({
             height={isMobile ? project.mobileHeight : project.height}
             priority
           />
-          <span className="text-accent text-sm font-medium uppercase tracking-wider">
+          <span className="text-foreground text-sm font-medium uppercase tracking-wider">
             {project.alt}
           </span>
         </div>

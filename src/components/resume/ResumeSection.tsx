@@ -26,7 +26,7 @@ export const ResumeSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="relative" ref={ref}>
               <ResumeTimeline title="Experience" items={experienceData} />
             </div>
