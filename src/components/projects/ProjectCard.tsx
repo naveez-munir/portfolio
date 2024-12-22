@@ -70,7 +70,7 @@ function ProjectCard({
                   {project.alt}
                 </h1>
               </div>
-              <p className="text-white/90 text-sm font-medium mt-2">
+              <p className="text-white/90 text-sm font-medium mt-2 ml-16">
                 {project?.duration}
               </p>
             </div>

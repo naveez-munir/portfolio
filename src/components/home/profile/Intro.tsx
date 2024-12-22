@@ -43,7 +43,7 @@ export const IntroSection = () => {
             transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false }}
           >
-            Software Engineer, Full Stack Developer (MERN), AWS Cloud Expert
+            Software Engineer | Full Stack Developer (MERN)
           </motion.p>
         </motion.div>
 
@@ -75,10 +75,10 @@ export const IntroSection = () => {
             {/* <a href="https://www.linkedin.com/in/naveez-ahmad-08660517b/" className="hover:text-accent transition-colors">
               Twitter
             </a> */}
-            <a href="https://www.linkedin.com/in/naveez-ahmad-08660517b/" className="hover:text-accent transition-colors">
+            <a href="https://www.linkedin.com/in/naveez-munir-08660517b/" className="hover:text-accent transition-colors">
               LinkedIn
             </a>
-            <a href="https://github.com/Naveez67" className="hover:text-accent transition-colors">
+            <a href="https://github.com/naveez-munir" className="hover:text-accent transition-colors">
               GitHub
             </a>
           </div>

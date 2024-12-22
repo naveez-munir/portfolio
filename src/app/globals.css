@@ -11,12 +11,12 @@
 }
 
 .light {
-  --background: #fdfbf7;
-  --foreground: #2d4f67;
-  --border-color: #64a6b3;
-  --accent: #e17c77;
-  --shadow-color: rgba(225, 124, 119, 0.15);
- }
+  --background: #F8F9FA;
+  --foreground: #373D49;
+  --border-color: #A3A9B7;
+  --accent: #6C63FF;
+  --shadow-color: rgba(55, 61, 73, 0.15);
+}
 
  .dark {
   --background: #1a1b26;

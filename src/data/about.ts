@@ -30,8 +30,9 @@ export const skills: string[] = [
  export const typewriterWords = [
   "Naveez Munir",
   "Software Engineer",
+  "Frontend Engineer",
+  "Backend Engineer",
   "Full Stack Developer",
-  "an AWS Expert"
  ];
 
  export const links: LinkItem[] = [
@@ -42,16 +43,16 @@ export const skills: string[] = [
     primary: true,
   },
   {
-    href: "https://drive.google.com/file/d/1QU71Lh49DjFdXM_3wMd1yCRyipR7uPNW/view",
+    href: "https://drive.google.com/file/d/1HMnLbtve9g8sGuW1gcPl2oLoUOEb4lwe/view",
     text: "Resume",
   },
   {
-    href: "https://github.com/Naveez67",
+    href: "https://github.com/naveez-munir",
     icon: Github,
     text: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/naveez-ahmad-08660517b/",
+    href: "https://www.linkedin.com/in/naveez-munir-08660517b/",
     icon: Linkedin,
     text: "LinkedIn",
   },

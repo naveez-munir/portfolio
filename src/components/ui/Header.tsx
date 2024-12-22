@@ -97,7 +97,7 @@ export const Header = () => {
               whileTap={{ scale: 0.95, transition: { duration: 0.3 } }}
             >
               <Link
-                href="https://drive.google.com/file/d/1QU71Lh49DjFdXM_3wMd1yCRyipR7uPNW/view"
+                href="https://drive.google.com/file/d/1HMnLbtve9g8sGuW1gcPl2oLoUOEb4lwe/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border-2 border-background text-background font-semibold py-1 px-3 lg:py-2 lg:px-4 rounded-full
@@ -158,7 +158,7 @@ export const Header = () => {
                         whileTap={{ scale: 0.95, transition: { duration: 0.3 } }}
                       >
                         <Link
-                          href="https://drive.google.com/file/d/1QU71Lh49DjFdXM_3wMd1yCRyipR7uPNW/view"
+                          href="https://drive.google.com/file/d/1HMnLbtve9g8sGuW1gcPl2oLoUOEb4lwe/view"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="border-2 border-background text-background font-semibold py-2 px-6 rounded-full

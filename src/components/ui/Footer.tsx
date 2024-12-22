@@ -18,26 +18,26 @@ export const Footer = () => {
 
           <div className="flex items-center space-x-8">
             <a
-              href="#"
+              href="https://github.com/naveez-munir"
               className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
               aria-label="GitHub"
             >
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/naveez-munir-08660517b/"
               className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-6 h-6" />
             </a>
-            <a
+            {/* <a
               href="#"
               className="text-foreground/60 hover:text-accent transition-all duration-300 transform hover:scale-110"
               aria-label="Twitter"
             >
               <Twitter className="w-6 h-6" />
-            </a>
+            </a> */}
           </div>
         </div>
 
